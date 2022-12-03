@@ -22,7 +22,9 @@ const connectDb = async () => {
   console.log('Database is connected!');
 };
 
-app.listen(port, async () => {
+const server = app.listen(port, () => {
   console.log(`Server is running on port ${port}!`);
-  await connectDb();
+  connectDb();
 });
+
+module.exports { app, server };

@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --verbose",
+    "start": "node ./src/index.js",
     "dev": "nodemon ./src/index.js",
-    "start": "node ./src/index.js"
+    "test": "jest --watchAll --verbose",
+    "test:coverage": "jest --coverage",
+    "test:integ": "jest --forceExit ./integtest",
+    "test:performance": "k6 run ./loadtest/performance.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +29,7 @@
   "devDependencies": {
     "chance": "^1.1.9",
     "jest": "^29.3.1",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.2"
   }
 }
