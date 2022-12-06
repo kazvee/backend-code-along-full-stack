@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 require('dotenv').config();
 
 const productsRouter = require('./routes/products');
@@ -9,6 +10,7 @@ const app = express();
 const port = 4000;
 
 app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send({ message: '🙃 Hello World! 🙃' });
@@ -27,4 +29,4 @@ const server = app.listen(port, () => {
   connectDb();
 });
 
-module.exports { app, server };
+module.exports = { app, server };
